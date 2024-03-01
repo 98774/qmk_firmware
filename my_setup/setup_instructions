@@ -1,0 +1,8 @@
+INSTRUCTIONS TO SETUP THE QMK ON A NeW SYSTEM:
+
+Run teh following commands to install pipx (debian doesn't like changing python)
+   38  sudo apt install pipx
+   39  pipx install qmk
+   40  pipx ensurepath
+
+qmk setup
