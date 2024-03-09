@@ -1,6 +1,6 @@
 {
     "keyboard_name": "Dactyl Manuform 4x5",
-    "manufacturer": "tshort",
+    "manufacturer": "jonathon",
     "url": "",
     "maintainer": "qmk",
     "usb": {
@@ -9,7 +9,7 @@
         "device_version": "0.0.1"
     },
     "rgblight": {
-        "led_count": 12
+        "led_count": 6 
     },
     "ws2812": {
         "pin": "D3"
@@ -24,7 +24,6 @@
     },
     "processor": "atmega32u4",
     "bootloader": "caterina",
-    "community_layouts": ["split_3x5_3"],
     "layouts": {
         "LAYOUT": {
             "layout": [

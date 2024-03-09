@@ -6,3 +6,5 @@ Run teh following commands to install pipx (debian doesn't like changing python)
    40  pipx ensurepath
 
 qmk setup
+
+#THe qmk commands might be obsolete because now I just pull my github repository

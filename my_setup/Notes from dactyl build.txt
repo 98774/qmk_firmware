@@ -1,0 +1,61 @@
+Notes from dactyl build:
+
+Printing:
+Tree scaffolding
+Around 25 hours
+My 3D print model was wrong so I had to manually patch a gap
+The amoeba boards are smaller so my Universal Toebeans didn't work (had to cut the tabs off of each corner of each key
+Heat press didn't quite work for the casing, had to cut off a lip that formed
+I think it was cause I used a converter, but the acrylic case didn't work well. Its edges were all slightly off from the actual case.
+
+Soldering:
+	Toebeans info:
+	All positive goes to vcc
+	Also a ug Vcc, not sure what that is
+	https://github.com/WainingForests/Universal-Toe-Beans
+		
+
+LEDS:
+https://www.dlford.io/keyboard-build-guide-per-key-rgb-leds/
+Seems like QMK lets us map the LED's to whatever we want so i can do whatever path makes the most sense
+
+Here is how I'm gonna do it
+		RHS:
+		   20 16 6 3
+		23 19 15 5 2
+		22 18 14 4 1
+		21 17 13    
+			 12  7
+			    11 8
+			    10 9
+		
+	Pinout for the board:
+	
+1	 LED_DATA    Connector   ____
+2	 ____                    TRRS[2] GND
+3 	 LED_GND                 RST
+4    RST                     LED_VCC && TRRS[1] VCC 
+5    TRRS[3] SDA             ____
+6    TRRS[4] SCL             ____
+7    ____                    ____
+8    COL 1                   ROW 5
+9    COL 2                   ROW 4
+10   COL 3                   ROW 3
+11   COL 4                   ROW 2
+12   COL 5                   ROW 1
+
+Notes on changes in QMK:
+We will just use the commit history for this...
+rules.mk 
+#define RGB_DI_PIN D3
+#define DRIVER_LED_TOTAL 23
+
+To sync with the remote:
+git fetch upstream
+git merge upstream/master
+
+To fix invalid keymap error on qmk flash:
+make sure to specify the keymap file!!!!
+
+
+
