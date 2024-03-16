@@ -1,4 +1,6 @@
 Notes from dactyl build:
+Not the current build, but a good one I think 
+https://ryanis.cool/cosmos/beta#cf:ChYIBBAFWAYYBiAFKNcBMM0BUAJAAEgAWn0KEQjji8ys8DMQpqngxvCziOQBEhAIj4XYnJADEI2FgMDdjasBEg8IjqiX2AcQjYWAwN2NqwESDwirhdwDEJuJhJ7g3JDkARIQCOKD0NABEOuTnJeg8JHkARIPCM/mjzgQg4+cl6C9kuQBEhEI8IXEl7ABEOGdzI3A2JLkAUJTCAPgAQF4AtgBARABSABIAEgASABIAEgASABgAmgAcAEYACAAKAGYAfQDqAHoB6AByAGwAQCQAYQHuAEAgAEAMAA4KFgBiAEBwAEAyAHYBNABhAc=
 
 Printing:
 Tree scaffolding
@@ -48,7 +50,6 @@ Notes on changes in QMK:
 We will just use the commit history for this...
 rules.mk 
 #define RGB_DI_PIN D3
-#define DRIVER_LED_TOTAL 23
 
 To sync with the remote:
 git fetch upstream
@@ -57,5 +58,14 @@ git merge upstream/master
 To fix invalid keymap error on qmk flash:
 make sure to specify the keymap file!!!!
 
+Had to rotate columns and rows:
+"matrix_pins": {
+        "rows": ["B5", "B4", "E6", "D7", "C6"],
+        "cols": ["B6", "B2", "B3", "B1", "F7"]
+    },
 
+problems:
+f?r column connection
+solder bridge in upper right corner between yellow and black
+upper right corner wont stay down
 
