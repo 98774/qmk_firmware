@@ -1,6 +1,6 @@
 {
-    "keyboard_name": "Dactyl Manuform 4x5",
-    "manufacturer": "jonathon",
+    "keyboard_name": "98774 for Life",
+    "manufacturer": "Feljon LLC",
     "url": "",
     "maintainer": "qmk",
     "usb": {
@@ -9,11 +9,24 @@
         "device_version": "0.0.1"
     },
     "rgblight": {
-        "led_count": 50
+      "hue_steps": 10,
+      "led_count": 46,
+      "animations": {
+        "breathing": true,
+        "rainbow_mood": true,
+        "rainbow_swirl": true,
+        "snake": true,
+        "knight": true,
+        "static_gradient": true
+      }
     },
     "ws2812": {
         "pin": "D3"
     },
+    "rgb_matrix": {
+      "driver": "ws2812"
+    },
+    
     "matrix_pins": {
         "rows": ["B5", "B4", "E6", "D7", "C6"],
         "cols": ["B6", "B2", "B3", "B1", "F7"]

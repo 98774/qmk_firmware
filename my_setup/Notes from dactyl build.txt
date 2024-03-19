@@ -1,5 +1,5 @@
 Notes from dactyl build:
-Not the current build, but a good one I think 
+Not the current build, but a good one I think
 https://ryanis.cool/cosmos/beta#cf:ChYIBBAFWAYYBiAFKNcBMM0BUAJAAEgAWn0KEQjji8ys8DMQpqngxvCziOQBEhAIj4XYnJADEI2FgMDdjasBEg8IjqiX2AcQjYWAwN2NqwESDwirhdwDEJuJhJ7g3JDkARIQCOKD0NABEOuTnJeg8JHkARIPCM/mjzgQg4+cl6C9kuQBEhEI8IXEl7ABEOGdzI3A2JLkAUJTCAPgAQF4AtgBARABSABIAEgASABIAEgASABgAmgAcAEYACAAKAGYAfQDqAHoB6AByAGwAQCQAYQHuAEAgAEAMAA4KFgBiAEBwAEAyAHYBNABhAc=
 
 Printing:
@@ -15,7 +15,7 @@ Soldering:
 	All positive goes to vcc
 	Also a ug Vcc, not sure what that is
 	https://github.com/WainingForests/Universal-Toe-Beans
-		
+
 
 LEDS:
 https://www.dlford.io/keyboard-build-guide-per-key-rgb-leds/
@@ -26,17 +26,17 @@ Here is how I'm gonna do it
 		   20 16 6 3
 		23 19 15 5 2
 		22 18 14 4 1
-		21 17 13    
+		21 17 13
 			 12  7
 			    11 8
 			    10 9
-		
+
 	Pinout for the board:
-	
+
 1	 LED_DATA    Connector   ____
 2	 ____                    TRRS[2] GND
 3 	 LED_GND                 RST
-4    RST                     LED_VCC && TRRS[1] VCC 
+4    RST                     LED_VCC && TRRS[1] VCC
 5    TRRS[3] SDA             ____
 6    TRRS[4] SCL             ____
 7    ____                    ____
@@ -48,7 +48,7 @@ Here is how I'm gonna do it
 
 Notes on changes in QMK:
 We will just use the commit history for this...
-rules.mk 
+rules.mk
 #define RGB_DI_PIN D3
 
 To sync with the remote:
@@ -69,3 +69,12 @@ f?r column connection
 solder bridge in upper right corner between yellow and black
 upper right corner wont stay down
 
+Fixed solder issues:
+One solder bridge between R and DIN
+One R was plugged into DIN
+In both cases a key press on any key on the row would light up the whole column
+    I think because the key press shorted DIN (VCC) to the row so that scanning any of the buttons
+    on that row would detect a high
+
+NEED TO PLUG INTO DOUT!!!! That was why it never worked!!!
+Plugging into the other end of the wire got it all to work
