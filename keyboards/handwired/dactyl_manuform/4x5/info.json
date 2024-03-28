@@ -8,23 +8,14 @@
         "pid": "0x3435",
         "device_version": "0.0.1"
     },
-    "rgblight": {
-      "hue_steps": 10,
-      "led_count": 46,
-      "animations": {
-        "breathing": true,
-        "rainbow_mood": true,
-        "rainbow_swirl": true,
-        "snake": true,
-        "knight": true,
-        "static_gradient": true
-      }
+    "rgb_matrix": {
+        "driver": "ws2812",
+        "center_point": [111,25],
+        "led_count": 46
+
     },
     "ws2812": {
         "pin": "D3"
-    },
-    "rgb_matrix": {
-      "driver": "ws2812"
     },
     
     "matrix_pins": {

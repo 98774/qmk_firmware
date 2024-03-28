@@ -78,3 +78,11 @@ In both cases a key press on any key on the row would light up the whole column
 
 NEED TO PLUG INTO DOUT!!!! That was why it never worked!!!
 Plugging into the other end of the wire got it all to work
+
+LIGHT Troubles:
+
+Lots of flashing and inconsistency in the lights
+	related to some loose gnd and data wires. Very hard to find them because of the setuphhhhhhh
+	Blue wire one straight out from the base LED is loose
+	Base LED wires are loose
+	Various places that I push will kill the LEDs
