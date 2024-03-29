@@ -9,7 +9,7 @@
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[0] = LAYOUT(RGB_MOD, RGB_VAD, RGB_VAI, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_A, KC_S, KC_D, KC_F, KC_G, KC_1, KC_J, KC_K, KC_L, KC_1, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_1, KC_1, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_3, KC_4, KC_5),
+	[0] = LAYOUT(RGB_MOD, RGB_VAI, RGB_VAD, KC_R, KC_T, KC_Y, KC_U, RGB_MOD, RGB_VAI, RGB_VAD, KC_A, KC_S, KC_D, KC_F, KC_G, KC_1, KC_J, KC_K, KC_L, KC_1, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_1, KC_1, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_3, KC_4, KC_5),
 	[1] = LAYOUT(KC_TRNS, KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS, KC_VOLU, KC_TRNS, KC_UP, KC_TRNS, KC_PGUP, KC_TRNS, KC_MS_L, KC_LALT, KC_MS_R, KC_TRNS, KC_MUTE, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_VOLD, KC_SLSH, KC_BSLS, KC_QUES, KC_PIPE, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN1, KC_TAB, KC_SPC, KC_BTN3, KC_BTN2, QK_GESC, SC_SENT, KC_TRNS),
 	[2] = LAYOUT(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_BSLS, KC_SLSH, KC_LPRN, KC_LBRC, KC_LCBR, KC_1, KC_2, KC_3, KC_4, KC_5, KC_PIPE, KC_QUES, KC_RPRN, KC_RBRC, KC_RCBR, KC_6, KC_7, KC_8, KC_9, KC_0, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_TAB, KC_SPC, KC_TRNS, KC_TRNS, QK_GESC, SC_SENT, KC_TRNS),
 	[3] = LAYOUT(RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, KC_VOLU, KC_VOLD, KC_MUTE, KC_VOLU, KC_NO, RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, KC_VOLD, KC_MPRV, KC_MPLY, KC_MNXT, KC_NO, RGB_TOG, BL_TOGG, BL_STEP, BL_ON, BL_OFF, KC_MUTE, KC_LCAP, KC_LNUM, KC_LSCR, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, QK_GESC, KC_TRNS, KC_NO, KC_NO, SC_SENT, KC_TRNS),
@@ -28,26 +28,26 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 
-// #define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_CYCLE_LEFT_RIGHT // Sets the default mode, if none has been set
+#define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_CYCLE_LEFT_RIGHT // Sets the default mode, if none has been set
 
 
 #ifdef RGB_MATRIX_ENABLE
 // Enable animations
 // #  define ENABLE_RGB_MATRIX_ALPHAS_MODS                 // Static dual hue speed is hue for secondary hue
-// #  define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN            // Static gradient top to bottom speed controls how much gradient changes
-// #  define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT         // Static gradient left to right speed controls how much gradient changes
+#  define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN            // Static gradient top to bottom speed controls how much gradient changes
+#  define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT         // Static gradient left to right speed controls how much gradient changes
 #  define ENABLE_RGB_MATRIX_BREATHING                   // Single hue brightness cycling animation
-// #  define ENABLE_RGB_MATRIX_BAND_SAT                    // Single hue band fading saturation scrolling left to right
-// #  define ENABLE_RGB_MATRIX_BAND_VAL                    // Single hue band fading brightness scrolling left to right
-// #  define ENABLE_RGB_MATRIX_BAND_PINWHEEL_SAT           // Single hue 3 blade spinning pinwheel fades saturation
-// #  define ENABLE_RGB_MATRIX_BAND_PINWHEEL_VAL           // Single hue 3 blade spinning pinwheel fades brightness
-// #  define ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT             // Single hue spinning spiral fades saturation
-// #  define ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL             // Single hue spinning spiral fades brightness
-// #  define ENABLE_RGB_MATRIX_CYCLE_ALL                   // Full keyboard solid hue cycling through full gradient
-// #  define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT            // Full gradient scrolling left to right
-// #  define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN               // Full gradient scrolling top to bottom
-// #  define ENABLE_RGB_MATRIX_CYCLE_OUT_IN                // Full gradient scrolling out to in
-// #  define ENABLE_RGB_MATRIX_CYCLE_OUT_IN_DUAL           // Full dual gradients scrolling out to in
+#  define ENABLE_RGB_MATRIX_BAND_SAT                    // Single hue band fading saturation scrolling left to right
+#  define ENABLE_RGB_MATRIX_BAND_VAL                    // Single hue band fading brightness scrolling left to right
+#  define ENABLE_RGB_MATRIX_BAND_PINWHEEL_SAT           // Single hue 3 blade spinning pinwheel fades saturation
+#  define ENABLE_RGB_MATRIX_BAND_PINWHEEL_VAL           // Single hue 3 blade spinning pinwheel fades brightness
+#  define ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT             // Single hue spinning spiral fades saturation
+#  define ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL             // Single hue spinning spiral fades brightness
+#  define ENABLE_RGB_MATRIX_CYCLE_ALL                   // Full keyboard solid hue cycling through full gradient
+#  define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT            // Full gradient scrolling left to right
+#  define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN               // Full gradient scrolling top to bottom
+#  define ENABLE_RGB_MATRIX_CYCLE_OUT_IN                // Full gradient scrolling out to in
+#  define ENABLE_RGB_MATRIX_CYCLE_OUT_IN_DUAL           // Full dual gradients scrolling out to in
 // #  define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON      // Full gradent Chevron shapped scrolling left to right
 // #  define ENABLE_RGB_MATRIX_CYCLE_PINWHEEL              // Full gradient spinning pinwheel around center of keyboard
 // #  define ENABLE_RGB_MATRIX_CYCLE_SPIRAL                      // Full gradient spinning spiral around center of keyboard

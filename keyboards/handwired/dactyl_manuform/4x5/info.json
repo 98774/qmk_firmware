@@ -11,8 +11,8 @@
     "rgb_matrix": {
         "driver": "ws2812",
         "center_point": [111,25],
-        "led_count": 46
-
+        "led_count": 46,
+        "max_brightness": 80
     },
     "ws2812": {
         "pin": "D3"
@@ -23,9 +23,6 @@
         "cols": ["B6", "B2", "B3", "B1", "F7"]
     },
     "diode_direction": "COL2ROW",
-    "split": {
-        "soft_serial_pin": "D0"
-    },
     "processor": "atmega32u4",
     "bootloader": "caterina",
     "layouts": {
