@@ -42,21 +42,18 @@ led_config_t g_led_config = { {
   {37, 36, 35, 34, NL},
 }, {
   // LED Index to Physical Position
+{81,25},{81,12},{81,0},{61,25},{61,12},
+{61,0},{61,38},{81,38},{101,38},{90, 58},
+{70, 51},{50, 51},{40,38},{40,25},{40,12},
+{40,0},{20,38},{20,25},{20,12},{20,0},
+{0,25},{0,12},{0,0},
 
-//LHS
-{81,25},{81,12},{81,0},{61,25},{61,12},{61,0},
-{61,38},{81,38},{101,38},{101,51},{81,51},{61,51},
-{40,38},{40,25},{40,12},{40,0},{20,38},{20,25},
-{20,12},{20,0},{0,25},{0,12},{0,0},
+{224,0},{224,12},{224,25},{203,0},{203,12},
+{203,25},{203,38},{183,0},{183,12},{183,25},
+{183,38},{163, 38},{142,51},{130, 58},{122,51},
+{130,45},{142,40},{162,0},{162,12},{162,25},
+{142,0},{142,12},{142,25}
 
-//RHS
-{223,0},{223,12},{223,25},
-{203,0},{203,12},{203,25},{203,38},
-{183,0},{183,12},{183,25},{183,38},
-//Thumb cluster
-{162,51},{142,51},{122,51},{122,38},{142,38},{162,38},
-{162,0},{162,12},{162,25},
-{142,0},{142,12},{142,25},
 }, {
   // LED Index to Flag
 
@@ -74,4 +71,50 @@ led_config_t g_led_config = { {
   4, 4, 4, 4,
   4, 4, 4, 4
 } };
+#endif
+
+enum layers {
+  _BASE = 0,
+  _NAV,
+  _PROG,
+  _RGB,
+  _SYS
+};
+
+#ifdef OLED_ENABLE
+bool oled_task_user(void) {
+    // Host Keyboard Layer Status
+    oled_write_P(PSTR("Layer: "), false);
+
+    switch (get_highest_layer(layer_state)) {
+        case _BASE:
+            oled_write_P(PSTR("Base\n"), false);
+            break;
+        case _NAV:
+            oled_write_P(PSTR("Nav\n"), false);
+            break;
+        case _PROG:
+            oled_write_P(PSTR("Prog\n"), false);
+            break;
+        case _RGB:
+            oled_write_P(PSTR("RGB\n"), false);
+            break;
+        case _SYS:
+            oled_write_P(PSTR("SYS\n"), false);
+            break;
+        default:
+            // Or use the write_ln shortcut over adding '\n' to the end of your string
+            oled_write_ln_P(PSTR("Undefined"), false);
+    }
+
+    // Host Keyboard LED Status
+    led_t led_state = host_keyboard_led_state();
+    oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
+    oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
+    oled_write_P(led_state.scroll_lock ? PSTR("SCR ") : PSTR("    "), false);
+
+    return false;
+
+}
+
 #endif
