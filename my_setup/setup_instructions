@@ -8,3 +8,9 @@ Run teh following commands to install pipx (debian doesn't like changing python)
 qmk setup
 
 #THe qmk commands might be obsolete because now I just pull my github repository
+
+#To generate and flash from a new image: 
+ 1282  mv ~/Downloads/handwired_dactyl_manuform_4x5_98774.json ./my_setup/handwired_dactyl_manuform_4x5_98774.json 
+ 1283  qmk json2c my_setup/handwired_dactyl_manuform_4x5_98774.json > keyboards/handwired/dactyl_manuform/4x5/keymaps/98774-RBG/keymap.c 
+ 1284  qmk compile
+ 1285  qmk flash handwired_dactyl_manuform_4x5_98774-RBG.hex

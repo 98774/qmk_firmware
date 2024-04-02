@@ -86,3 +86,33 @@ Lots of flashing and inconsistency in the lights
 	Blue wire one straight out from the base LED is loose
 	Base LED wires are loose
 	Various places that I push will kill the LEDs
+
+
+Have it all working!!!!
+Spent awhile flashing the second side and getting keymaps figured out
+
+OLED was easy, just attached it to the bus for I2C. Worked since I already had resistors and everything setuphhhhhhh
+
+
+Keymap proving hard
+Not very much space for RGB animations
+
+LHS
+1 2
+    3 <--> 4
+    6 <--> 5
+ 
+RHS
+        2 1
+3 <--> 4
+5 <--> 6
+
+SEEMS THAT THE THUMBS ARE SWAPPED
+
+Fundamental problem... if the keyboard swaps esc and caps then they aren't swapped on the computer,
+prob for any other thing
+
+ 1282  mv ~/Downloads/handwired_dactyl_manuform_4x5_98774.json ./my_setup/handwired_dactyl_manuform_4x5_98774.json 
+ 1283  qmk json2c my_setup/handwired_dactyl_manuform_4x5_98774.json > keyboards/handwired/dactyl_manuform/4x5/keymaps/98774-RBG/keymap.c 
+ 1284  qmk compile
+ 1285  qmk flash handwired_dactyl_manuform_4x5_98774-RBG.hex
